@@ -12,8 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
 function draw() {
   var canvas = document.getElementById('mainCanvas');
   if (canvas.getContext) {
+    var rect = canvas.parentNode.getBoundingClientRect();
     let w = canvas.width;
     let h = canvas.height;
+    console.log(rect);
+
     var ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, w, h);
 

@@ -5,25 +5,22 @@
   <title>HTML5 Canvas Testing</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link href="css/style.css" rel="stylesheet"> -->
 
-  <script src="scripts/main.js"></script>
+  <link href="css/main.css" rel="stylesheet">
 
-  <style>
-    canvas {
-      border: 1px solid black;
-    }
-  </style>
+  <script src="js/main.js"></script>
 
 </head>
 
 <body onload="draw();">
-  <canvas id="mainCanvas" width="640" height="640">Your browser cannot display HTML5 canvases properly.</canvas>
+  <div id="screen" class="screen">
+    <canvas id="mainCanvas" class="mainCanvas" width="640" height="640">Your browser cannot display HTML5 canvases properly.</canvas>
 
-  <div id="settings">
-    <label for="maxRad">Hexagon Maximum Radius: </label>
-    <input type="range" name="maxRad" id="maxRad" min="5" max="1000" step="5" value="20">
-    <output class="maxRadOutput" id="maxRadOutput" for="maxRad"></output>
+    <div id="settings", class="settings">
+      <label for="maxRad">Hexagon Maximum Radius: </label>
+      <input type="range" name="maxRad" id="maxRad" min="5" max="1000" step="5" value="20">
+      <output class="maxRadOutput" id="maxRadOutput" for="maxRad"></output>
+    </div>
   </div>
 </body>
 
