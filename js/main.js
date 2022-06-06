@@ -1,35 +1,32 @@
-document.addEventListener('DOMContentLoaded', function() {
-  let maxRad = document.querySelector('#maxRad');
-  let maxRadOutput = document.querySelector('#maxRadOutput');
-  maxRadOutput.textContent = maxRad.value;
-
-  maxRad.addEventListener('input', function() {
-    maxRadOutput.textContent = maxRad.value;
-    draw();
-  });
+window.addEventListener("resize", function() {
+  draw();
 });
 
 function draw() {
-  var canvas = document.getElementById('mainCanvas');
+  var canvas = document.getElementById('main-canvas');
   if (canvas.getContext) {
-    var rect = canvas.parentNode.getBoundingClientRect();
-    let w = canvas.width;
-    let h = canvas.height;
-    console.log(rect);
 
     var ctx = canvas.getContext('2d');
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+    ctx.canvas.width = w;
+    ctx.canvas.height = h;
     ctx.clearRect(0, 0, w, h);
 
-    var maxRad = document.querySelector('#maxRad').value;
+    let maxRad = 20;
+    let minRad = maxRad * Math.sqrt(3) / 2;
+    let columns = Math.floor(w / (minRad * 2)) + 2;
+    let rows = Math.floor(h / (maxRad * 2)) + 2;
+    console.log([columns, rows]);
 
-    for (let y = 0; y < 30; y++) {
-      for (let x = 0; x < 30; x++) {
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < columns; x++) {
         let linewidth = 2;
         ctx.lineWidth = linewidth;
         ctx.strokeStyle = 'black';
         ctx.fillStyle = '#0095DD';
-        drawHexagon(ctx, x * maxRad * 2 * Math.sqrt(3) / 2, y * maxRad * 2, maxRad, 0);
-        drawHexVertexes(ctx, x * maxRad * 2 * Math.sqrt(3) / 2, y * maxRad * 2, maxRad, 0)
+        drawHexagon(ctx, x * 2 * minRad, y * maxRad * 2, maxRad, 0);
+        drawHexVertexes(ctx, x * 2 * minRad, y * maxRad * 2, maxRad, 0)
       }
     }
   }

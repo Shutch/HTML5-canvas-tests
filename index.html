@@ -6,21 +6,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css" type="text/css">
+  <link rel="stylesheet" href="css/sidebar.css" type="text/css">
 
   <script src="js/main.js"></script>
+
+  <style>
+    html,
+    body {
+      overflow: hidden;
+    }
+  </style>
 
 </head>
 
 <body onload="draw();">
-  <div id="screen" class="screen">
-    <canvas id="mainCanvas" class="mainCanvas" width="640" height="640">Your browser cannot display HTML5 canvases properly.</canvas>
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar--closed">
+    <!-- Insert options here -->
+    <a></a>
+  </div>
+  <div id="sidebar-tab" class="sidebar__tab--closed" onclick="toggleNav()">
+    <div id="sidebar-icon" class="sidebar__icon">></div>
+  </div>
+  <script src="js/sidebar.js"></script>
 
-    <div id="settings", class="settings">
-      <label for="maxRad">Hexagon Maximum Radius: </label>
-      <input type="range" name="maxRad" id="maxRad" min="5" max="1000" step="5" value="20">
-      <output class="maxRadOutput" id="maxRadOutput" for="maxRad"></output>
-    </div>
+  <div id="screen" class="screen">
+    <canvas id="main-canvas" class="main-canvas" width="640" height="640">
+      Your browser cannot display HTML5 canvases properly.
+    </canvas>
   </div>
 </body>
 
